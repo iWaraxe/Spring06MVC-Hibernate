@@ -1,6 +1,5 @@
 package com.coherentsolutions.spring.mvc.controller;
 
-import com.coherentsolutions.spring.mvc.dao.EmployeeDAO;
 import com.coherentsolutions.spring.mvc.entity.Employee;
 import com.coherentsolutions.spring.mvc.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +46,11 @@ public class MyController {
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
         return "employee-info";
+    }
+
+    @RequestMapping("/deleteEmployee")
+    public String deleteEmployee(@RequestParam("empId") int id){
+        employeeService.deleteEmployee(id);
+        return "redirect:/";
     }
 }

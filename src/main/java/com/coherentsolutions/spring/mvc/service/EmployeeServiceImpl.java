@@ -2,7 +2,6 @@ package com.coherentsolutions.spring.mvc.service;
 
 import com.coherentsolutions.spring.mvc.dao.EmployeeDAO;
 import com.coherentsolutions.spring.mvc.entity.Employee;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +30,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public Employee getEmployeeById(int id) {
         return employeeDAO.getEmployeeById(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteEmployee(id);
     }
 }
