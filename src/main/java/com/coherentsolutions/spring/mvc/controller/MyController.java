@@ -25,19 +25,4 @@ public class MyController {
 
         return "all-employees";
     }
-
-    @RequestMapping("/addNewEmployee")
-    public String addNewEmployee(Model model){
-        Employee employee = new Employee();
-        model.addAttribute("employee", employee);
-        return "employee-info";
-    }
-
-    @RequestMapping("/saveEmployee")
-    public String saveEmployee(@ModelAttribute("employee") Employee employee){
-
-        employeeService.saveEmployee(employee);
-
-        return "redirect:/";
-    }
 }
