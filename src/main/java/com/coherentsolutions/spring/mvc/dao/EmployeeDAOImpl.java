@@ -1,6 +1,7 @@
 package com.coherentsolutions.spring.mvc.dao;
 
 import com.coherentsolutions.spring.mvc.entity.Employee;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         List<Employee> employees = query.list();
         return employees;
     }
+
+    @Override
+    public void saveEmployee(Employee employee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.save(employee);
+    }
+
 }
